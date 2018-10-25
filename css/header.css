@@ -1,0 +1,43 @@
+header{
+    background: #38D3A8;
+    width:1920px;
+    height:80px;
+    position: relative;
+}
+.pic img{
+    position: relative;
+    left:200px;
+    margin:15px 0px;  
+}
+.middle{
+    position: absolute;
+    left:20%;
+    top:35%;
+}
+.middle span{
+   margin-left:20px;
+   
+   font-weight:bold;
+}
+a{
+   text-decoration:none;
+   color:white;  
+}
+.help{
+    position: absolute;
+    left:60%;
+    top:35%;
+}
+.search{
+    background: #fff;
+}
+.help input{
+    width:200px;
+    height:30px;
+    border:0px;
+}
+.help a{
+    font-size:14px;
+    margin-left:10px; 
+  
+}

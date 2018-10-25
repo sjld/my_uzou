@@ -1,0 +1,170 @@
+body{
+    background: #EFEFEF;
+    height:auto;
+}
+.row .pic1{
+    width:262px;
+    height:196px;
+}
+.row>.col-md-4>.d1>ul>li img{
+    width:62px;
+    height:49px;
+}
+.row>.col-md-4>.d1>ul>li{
+    display: inline-block;
+}
+.row>.col-md-4>.d1>ul{
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;padding:0;
+}
+.d1{
+    width:262px;
+    height:50px;
+    position:relative;
+}
+.d1>:first-child{
+    position: absolute;
+    left:10px;
+    top:22px;
+}
+.d1>:last-child{
+    position: absolute;
+    right:10px;
+    top:22px;
+}
+.row>.col-md-8>h5{
+    font-weight: bold;
+}
+.row>.col-md-8>span{
+    color:#F87500;
+    font-size:22px;
+}
+.container>.row>.col-md-9>.row>.col-md-4{
+    position:relative;
+}
+.row .pic2{
+    position:absolute;
+    top:-16px;
+    right:0;
+}
+table .pic3{
+    width: 174px;
+    height:155px;
+}
+#content{
+  background: #EDFFF7;
+  border:1px solid #D6F5E7;  
+  padding:5px;
+  text-indent: 35px;
+}
+table{
+    font-size:14px;
+}
+table tr td a{
+   vertical-align: -40px;
+    position: relative;
+    left:-66px;
+}
+table{
+    width:855px;
+}
+table tr td{
+    padding-right: 32px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.tb{
+    width:855px;
+    height:258px;
+    margin: 8px -15px;
+}
+.produce_introduce{
+    width:855px;
+    margin-left:-15px;
+}
+.produce_introduce>nav>ul>li{
+    display: inline;
+    font-weight: bold;
+
+}
+.produce_introduce>nav>ul>li>a{
+    text-decoration: none;
+    color:black;
+}
+.introduce>.col-1>div{
+    width:70px;
+    height:70px;
+    background: #29ca84;
+}
+.introduce>.col-1>div>img{
+    margin: 10px 27px;
+}
+.introduce>.col-1>div>b{
+    color:#ffffff;
+}
+.sub{
+    color:#76923C;
+    font-weight: bold;
+}
+.col-md-3>.Img{
+    width:253px;
+    height:500px;
+    background: #fff;
+}
+.col-md-3>.Img>.Img1{
+    width:115px;
+    margin: 0 auto;
+}
+.col-md-3>.Img>.Img1>a>img{
+    width:115px;
+    height:115px;
+}
+.col-md-3>.Img>.Img1>h5{
+    margin:10px 40px;
+}
+.business{
+    display:inline;
+    width:112px;
+    height:32px;
+    border:1px solid #29D3D0;
+    background: #fff;
+    color:#29D3D0;
+    padding:5px 20px;
+    cursor: pointer;
+}
+.about{
+    background: #F5F5F5;
+    margin:11px 0px;
+    width:253px;
+    height:148px;
+}
+.about:before{
+    content:'';
+    display:table;
+}
+.about>p>img{
+    width:70px;
+    height:24px;
+    cursor: pointer;
+}
+nav{
+    width:855px;
+    background: #fff;
+}
+.fixed{
+    position:fixed;
+    top:0px;
+    z-index:99;
+}
+.introduce11{
+    margin-top:100px;
+}
+#zhanwei{
+    height:85px;
+   
+    display:none;
+}
+
+
+

@@ -1,0 +1,280 @@
+#slider{
+  width:100%;
+}
+#slider>img{
+  width:100%;
+  display: none;
+}
+#slider>img.show{display:block;}
+.content>ul:after{
+  content:'';
+  display:block;
+  clear:both;
+}
+.second_floor{
+  width:100%;
+}
+#introduce_body{
+  position:relative;
+  height:344px;
+  margin-left:363px;
+}
+#content1,#content2,#content3,#content4,#content5,#content6{
+  position: absolute;
+}
+.content{
+  width:100%;
+}
+.content ul li{
+   float:left;
+   margin-left: 55px;
+  }
+.content ul{
+  width:1020px;
+  height:110px;
+  list-style: none; 
+  margin: 0 auto;
+}
+.sdiv>a:hover{
+  color:gray;
+}
+.sdiv>img{margin:10px 0;}
+.sdiv{ 
+text-align:center;
+margin:25px 20px;
+}
+.d2{
+  width:1170px;
+  height:344;
+  display:flex;
+  margin: 0 auto;
+}
+.d3{
+  background:#d1f1e8;
+  position: relative;
+  height:1170px;
+  padding-left:125px;
+}
+.total{
+  position: relative;
+  height:145px;
+  margin: 0 445px;
+}
+.shuoming p{
+  margin: 0;
+ font-size: 14px;
+ position: relative;
+ top:-105px;
+ left:230px;
+}
+.d3_content{
+  width:1170px;
+  margin: 0 auto;
+}
+.d3_content_bottom{
+  position:relative;
+  width:565px;
+  height:190px;
+  background: #38D3A8;
+}
+.d3_content_bottom_right{
+  position: absolute;
+  top:0px;
+  left:275px;
+  color:white;
+}
+.d3_content_bottom_right p{
+  margin-top:5px;
+  font-size: 14px;
+  text-indent: 30px;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:5;
+  overflow:hidden;
+}
+.d3_content_bottom_right h5{
+  padding:0;
+  margin:0;
+  margin-top:10px;
+  color:white;
+  font-weight:bold;
+}
+.d3_content_bottom::before{
+  content:'';
+  display:table;
+}
+.d3_content_bottom_left{
+  width:222px;
+  /*height:130px;*/
+  background: #fff;
+  text-align: center;
+  margin:25px;
+}
+.d3_content_bottom_left img{
+  width:132px;
+  height:132px;
+}
+.middle1{
+  position:absolute;
+  margin:0 240px;
+}
+.middle2{
+  position:absolute;
+  margin-left:815px;
+}
+.middle3{
+  position:absolute;
+  margin:455px 240px;
+}
+.middle4{
+  position:absolute;
+  margin:455px 815px;
+}
+.d4{padding-left:125px;}
+.d4_content{
+  width:1270px;
+  height:1000px;
+  position:relative;
+  margin-left:191px;
+}
+.d4_content>ul>li{
+  list-style:none;
+  position:relative;
+  float:left; 
+  margin:5px;
+}
+.d4_content ul .d4_content_desc{
+  width:270px;
+}
+.d4_content ul .d4_content_desc span{
+  margin:0;
+  padding:0;
+  color:red;
+  font-size:30px;
+  font-weight:bold;
+}
+.p_all{
+  font-size:14px;
+}
+.d_bottom{
+  position: relative;
+  width:100%;
+}
+.d5-floor1{
+  position: relative;
+  left: 370px;
+}
+.d5-floor1>img{
+   width:272px;
+   height:181px;
+   margin: 0 50px;
+ }
+.d5-floor2{
+    background:url("../img/bg-diwen.png");
+    height:362px;
+ }
+ .d5-floor2 h5{
+   color:#000;
+   font-weight: bold;
+ }
+ .d5-floor2::after{
+   content:'';
+   display:block;
+   clear:both
+ }
+ .d5all1,.d5all2,.d5all3{
+   background:white;
+   width:370px;
+   height:281px;
+   font-size:14px;
+   color:gray;
+   float:left;
+   position: relative;
+   left:320px;
+   margin-left:20px;
+   padding:20px 30px;
+ }
+ .d5-floor2 img{
+  width:120px;
+  height:80px;
+  margin:0 95px;
+}
+.d6{
+ width:1270px;
+ height:715px;
+ margin:0 auto;
+}
+.d6_left{
+ position:relative;
+ float:left;
+ height:500px;
+}
+.floor6_2{
+    width:315px;
+    position:relative;
+    top:-135px;
+    left:260px;
+ }
+.floor6_2 h3{
+   position:absolute;
+   top:15px;
+   left:155px;	 
+   color:gray;
+ }
+.floor6_2_1 p{
+   color:gray;
+   font-size:25px;	
+   width:20px;
+   height:35px;
+   margin-top:20px;
+ }
+.floor6_2_1 span{
+  display:block;
+   width:160px;
+   position:absolute;
+   left:155px;
+   top:60px;
+   font-size:22px;
+ }
+ .floor6_2_2 p{
+   position: absolute;
+   top:130px;
+   font-size:14px;
+   color:gray;
+ }
+.floor6_2_3 img{
+ width:195px;
+ height:195px;
+ position:absolute;
+ top:265px;
+} 
+.floor6_2_3 p{
+  position:absolute;
+  top:435px;
+}
+.d6_right{
+  width:576px;
+  height:530px;
+ float:left;
+  position:relative; 
+  left:200px;
+}
+.special{
+ width:236px;
+ float:right;
+ margin:0px -10px;
+}
+.Picture{
+ margin:0 120px;
+}
+.Picture1{
+ 
+ margin: 60px -45px;
+}
+.uzou{
+  width:100%;
+}
+.padding{
+  width:1920px;
+  margin:0 auto;
+}

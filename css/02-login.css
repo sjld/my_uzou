@@ -1,0 +1,48 @@
+ #div1{
+    width:450px;
+	height:486px;
+	border:1px solid transparent;
+    position:relative;	
+  }
+  .input{
+    width:300px;
+	height:30px;
+	margin-left:40px;
+  }
+  #p1{
+    margin:10px 100px;
+    position:absolute;
+	top:20px;
+	right:20px;
+  }
+  a{
+    text-decoration:none;
+	color:green;
+	
+  }
+h2{
+   margin:22px 40px;
+}
+.dd,.cc{
+  display:inline-block;
+  width:50px;
+  height:40px;
+  margin-left:40px;
+  color:white;
+  background:#29ca84;
+}
+span a{
+  margin-left:40px;
+  margin-right:130px;
+}  
+#div2 p{
+  margin-left:113px;
+}
+#regspan{
+  margin:35px;
+}
+.cc{
+  width:300px;
+  height:40px;
+  font-size:16px;
+}

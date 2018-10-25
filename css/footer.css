@@ -1,0 +1,28 @@
+footer{
+    background: #38D3A8;
+    height:80px;
+    width:1920px;
+    position: relative;
+    color:white;
+}
+footer ul{
+    list-style: none;
+    position:absolute;
+    left:17%;
+    font-weight: bold;
+    font-size:14px;
+
+}
+footer ul>li{
+    float:left;
+    margin-top:15px;
+    margin-left:65px;
+}
+footer .bottom{
+    margin-top:5px;
+    position: absolute;
+    top:50%;
+    left:28%;
+    font-size:14px;
+}
+
