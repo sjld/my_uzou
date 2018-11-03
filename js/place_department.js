@@ -1,49 +1,39 @@
 //小图片左右移动
-//找到左边按钮-后退
-var $left=$(".container:nth-child(4)").html();
-console.log($left);
-
-
-
-
-
-
-/*/小图片左右移动
-var $ul=$(ul);
-var $left=//找到左边按钮-后退按钮
-    $("#preview>div>div.card-body>img:first")
-//找到右边按钮-前进按钮
-var $right=$left.nextAll().last()
-//如果pics中图片总数<=4
-if(pics.length<=4)
-//为右边按钮添加disabled class
-    $right.addClass("disabled")
-var moved=0;//记录已经左移的图片个数
+var $left=$(".container>.row>.col-md-9>.row>.col-md-4>.d1>:first-child");
+var $right=$(".container>.row>.col-md-9>.row>.col-md-4>.d1>:last-child");
+var $ul=$(".container>.row>.col-md-9>.row>.col-md-4>.d1>:nth-child(2)");
+if($ul.css("marginLeft","0")){
+    $left.addClass("disabled")
+}
+var move=0;//记录已经左移的图片个数
 $left.on("click",function(){
-    var $left=$(this);
     if(!$left.is(".disabled")){
-        moved--;//已经左移的图片个数-1
+        move--;//已经左移的图片个数-1
         //ul的marginLeft始终等于:-li宽度62*左移图片个数
-        $ul.css("marginLeft",-62*moved)//不用px
-        $right.removeClass("disabled")
-        if(moved==0)
-            $left.addClass("disabled")
-    }
+        $(".row>.col-md-4>.d1>ul").css("marginLeft",-64*move);
+        $right.removeClass("disabled");}
+        if(move==0)
+           $left.addClass("disabled")
 })
 $right.on("click",function(){
     var $right=$(this);
     if(!$right.is(".disabled")){
-        moved++;//已经左移的图片个数+1
-        $ul.css("marginLeft",-62*moved)
+        move++;//已经左移的图片个数+1
+        $(".row>.col-md-4>.d1>ul").css("marginLeft",-64*move)
         //让左边按钮去掉disabled class
         $left.removeClass("disabled")
-        //如果pics中的图片总个数-moved次数==4
-        if(pics.length-moved==4)
-        //为右边按钮加上disabled class
+        /*if($ul.css("marginLeft","-128")){
             $right.addClass("disabled")
+        }*/
     }
-})*/
-var test=false;
+})
+var ul=$left.nextAll()[0]
+$("ul>li").on("mouseover",function(){
+     var index=$(this).index();
+     $(".pic1").eq(index).show().siblings().hide();
+     $(".dd").eq(index).show().siblings().hide();
+})
+/////////////////////////
 $(window).scroll(function(){
     //获取当前位置到窗口顶部的距离
     var hnum=$(window).scrollTop();
@@ -51,13 +41,11 @@ $(window).scroll(function(){
         //切换固定后的类
         $("nav").addClass("fixed");
         $("#introduce").addClass("introduce11");
-
     }
     else{
         $("nav").removeClass("fixed");
         $("#introduce").removeClass("introduce11");
     }
-
 })
 $("table>tbody>:nth-child(2)>:first-child>:nth-child(3)").on("click",function(e){
     e.preventDefault(); 
@@ -68,9 +56,73 @@ $("table>tbody>:nth-child(2)>:first-child>:nth-child(3)").on("click",function(e)
 			else
 		menu.hide()
 })
-   
+////////////////////////////////////////////////////////
+var lgDiv=$("#large");
+var index=$(this).index();
+//var yy=$(".pic1").eq(index);
+//lgDiv.style.backgroundImage=`url(yy)`;
+//lgDiv.style.backgroundImage=`url(${pics[0].lg})`;
+         // var $mImg=$(mImg),//中图片
+          //$lgDiv=$(lgDiv),//大图片
+          $mask=$("#mask"),//半透明遮罩
+          $smask=$("#super-mask");//透明玻璃板
+          var MSIZE=100,//mask的大小
+          leftMAX=262-MSIZE;//left的最大值
+          topMAX=196-MSIZE//top的最大值
 
-
+      $smask
+      .hover(
+        function(){
+          $mask.toggleClass("d-none");
+          lgDiv.toggleClass("d-none");
+        }
+      )
+      .mousemove(function(e){
+        var left=e.offsetX-MSIZE/2;
+        var top=e.offsetY-MSIZE/2;
+        if(left<0) left=0; 
+        else if(left>leftMAX) left=leftMAX;
+        if(top<0) top=0;
+        else if(top>topMAX) top=topMAX;
+        $mask.css({left,top});
+        
+        $("#large>img").css("margin",
+          `-${196/49*top}px -${262/62*left}px -${196/49*top}px -${262/62*left}px`)
+      })   
+$(".d1>ul>li").on("click","a",function(e){
+    e.preventDefault();
+    var a=$(this);
+    var pic=a.html();
+    $("#Center").css("display","block");
+    $("#cont").css("display","block").html(pic);
+    $(".direct_l").on("click",function(){
+        var yy=$(".d1>ul>li>a>img").eq(index)
+        console.log(yy) 
+        console.log(yy.index());
+        if(yy!=0){
+        $("#cont").css("display","block").html(yy);}
+        else{
+            $(".direct_l").addClass("disabled");
+        }
+       
+    })
+    $(".direct_r").on("click",function(){
+        var yy=$(".d1>ul>li>a>img").eq(index)
+        console.log(yy)
+        /*var bb=$(".d1>ul>li>a>img").index();
+        console.log(bb)
+        if($(".d1>ul>li>a>img").index()=0){
+            $(".direct_r").addClass("disabled")
+        }*/
+        var vb=yy.siblings();
+        console.log(vb)
+        $("#cont").css("display","block").html(yy);
+        //$(".dd").eq(index).show().siblings().hide();
+    })
+});
+$(".Close").on("click",function(){
+    $("#Center").css("display","none");
+})
 
 
 

@@ -1,7 +1,7 @@
 footer{
     background: #38D3A8;
     height:80px;
-    width:1920px;
+   /* width:1920px;*/
     position: relative;
     color:white;
 }
@@ -16,13 +16,13 @@ footer ul{
 footer ul>li{
     float:left;
     margin-top:15px;
-    margin-left:65px;
+    margin-left:125px;
 }
 footer .bottom{
     margin-top:5px;
     position: absolute;
     top:50%;
-    left:28%;
+    left:35%;
     font-size:14px;
 }
 

@@ -26,7 +26,7 @@ $(".tabs li").click(
   function(e){
     $(this).addClass("on").siblings().removeClass("on")
     var index=$(this).index()//获取索引值
-    $("#introduce_body>div").eq(index).show().siblings().hide()
+    $("#introduce_body>div").eq(index).fadeIn().siblings().fadeOut()
   }
 )
 $(function(){
@@ -35,30 +35,74 @@ $(function(){
     type:"get",
     dataType:"json",//ajax可自动将json转为obj
     success:function(res){
-      console.log(res);
       // var {pic}=res;
       var html=`
       <div id="floor_left">
-        <img src="img/f469b3de-f038-4500-aa05-9f05f9b81ce5.jpg" alt="">
+        <a href="uzou-hotel.html"><img src="${res[0].pic}" alt=""></a>
       </div>
       <div id="floor_right">
         <div id="floor_right1">
-          <a href=""><img src="${res[0].pic}"></a>
           <a href=""><img src="${res[1].pic}"></a>
           <a href=""><img src="${res[2].pic}"></a>
+          <a href=""><img src="${res[3].pic}"></a>
         </div>
         <div id="floor_right2">
-          <a href=""><img src="${res[3].pic}"></a>
           <a href=""><img src="${res[4].pic}"></a>
           <a href=""><img src="${res[5].pic}"></a>
-          <a href=""><img src="${res[6].pic}"></a>
+          <a href="place_department.html"><img src="${res[6].pic}"></a>
+          <a href=""><img src="${res[7].pic}"></a>
         </div>
       </div>`
     var divCard=document.querySelector("#content2");
-    divCard.innerHTML=html;
+    divCard.innerHTML=html;  
     }
   })
 })
+$(function(){
+  $.ajax({
+    url:"http://localhost:3000/index/busU",
+    type:"get",
+    dataType:"json",//ajax可自动将json转为obj
+    success:function(res){
+      //var {pic}=res;
+      var html=`
+      <div id="floor_left">
+        <img src="${res[0].pic}" alt="">
+      </div>
+      <div id="floor_right">
+        <div id="floor_right1">
+          <a href=""><img src="${res[1].pic}"></a>
+          <a href=""><img src="${res[2].pic}"></a>
+          <a href=""><img src="${res[3].pic}"></a>
+        </div>
+        <div id="floor_right2">
+          <a href=""><img src="${res[4].pic}"></a>
+          <a href=""><img src="${res[5].pic}"></a>
+          <a href=""><img src="${res[6].pic}"></a>
+          <a href=""><img src="${res[7].pic}"></a>
+        </div>
+      </div>`
+    var divCard=document.querySelector("#content3");
+    divCard.innerHTML=html;  
+    }
+  })
+})
+/*$("#Login>.Login>:first-child>:last-child>:first-child").on("click",function(e){
+  e.preventDefault();
+  $("#Reg").show();
+  $("#Login").hide();
+});
+$("#Reg>.Login>:first-child>:last-child>:first-child").on("click",function(e){
+  e.preventDefault();
+  $("#Reg").hide();
+  $("#Login").show();
+})
+$("#x").on("click",function(){
+  $("#choiceWindow").slideUp(300);
+  $("#backGround").hide();
+})*/
+
+
 
 
 

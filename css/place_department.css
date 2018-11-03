@@ -6,6 +6,9 @@ body{
     width:262px;
     height:196px;
 }
+.hidden{
+    display:none;
+}
 .row>.col-md-4>.d1>ul>li img{
     width:62px;
     height:49px;
@@ -14,6 +17,7 @@ body{
     display: inline-block;
 }
 .row>.col-md-4>.d1>ul{
+   
     overflow: hidden;
     white-space: nowrap;
     margin: 0;padding:0;
@@ -22,6 +26,7 @@ body{
     width:262px;
     height:50px;
     position:relative;
+    overflow: hidden;
 }
 .d1>:first-child{
     position: absolute;
@@ -125,8 +130,7 @@ table tr td{
 }
 .business{
     display:inline;
-    width:112px;
-    height:32px;
+   
     border:1px solid #29D3D0;
     background: #fff;
     color:#29D3D0;
@@ -164,6 +168,59 @@ nav{
     height:85px;
    
     display:none;
+}
+#super-mask{
+    width:262px;
+    height:196px;
+    position: absolute;
+    z-index: 999;
+}
+#mask{
+  width:100px; 
+  height:100px;
+  background-color:#ffa;
+  opacity:.5;
+  position:absolute;
+  margin-left:15px;
+}
+#large{
+    width: 900px;
+    height: 675px;
+    left: 277px;
+    z-index: 1000;
+    position: absolute;
+    overflow: hidden;
+}
+#Center{
+    display:none;
+    width:1100px;
+    height:700px;
+    background: rgba(0,0,0,.4);
+    position:absolute;
+    top:50%;
+    left:50%;
+    z-index:25;
+}
+#Center>.cont{
+   margin: 0 auto;
+   width:900px;
+}
+.direct_l{
+    position: absolute;
+    top:50%;
+    left:50px;
+}
+.Close{
+    margin-left:95%;
+    font-size:60px;
+    font-weight: 500;
+    color:white;
+    cursor: pointer;
+}
+.direct_r{
+    position:absolute;
+    top:50%;
+    left:90%;
 }
 
 

@@ -15,9 +15,17 @@
   width:100%;
 }
 #introduce_body{
+  /*width:1270px;
+  margin:0 auto;*/
   position:relative;
   height:344px;
   margin-left:363px;
+  margin-bottom: 60px;
+}
+#floor_left{
+  margin-right: 10px;
+  height:333px;
+  overflow: hidden;
 }
 #content1,#content2,#content3,#content4,#content5,#content6{
   position: absolute;
@@ -25,15 +33,16 @@
 .content{
   width:100%;
 }
+
 .content ul li{
-   float:left;
+   display:inline;
    margin-left: 55px;
   }
 .content ul{
-  width:1020px;
+  width:1270px;
   height:110px;
   list-style: none; 
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .sdiv>a:hover{
   color:gray;
@@ -44,10 +53,11 @@ text-align:center;
 margin:25px 20px;
 }
 .d2{
-  width:1170px;
+  width:1270px;
   height:344;
   display:flex;
   margin: 0 auto;
+
 }
 .d3{
   background:#d1f1e8;
@@ -55,20 +65,52 @@ margin:25px 20px;
   height:1170px;
   padding-left:125px;
 }
-.total{
-  position: relative;
-  height:145px;
-  margin: 0 445px;
+.total1{
+  margin: 10px 500px;
+  padding:40px 0;
+  
 }
-.shuoming p{
-  margin: 0;
+.shuoming1{
+ float: left;
  font-size: 14px;
- position: relative;
- top:-105px;
- left:230px;
+ margin: -105px 235px;
+
+}
+.total2{
+  margin: 10px 500px;
+  padding:40px 0;
+  
+}
+.shuoming2{
+ float: left;
+ font-size: 14px;
+ margin: -90px 195px;
+
+}
+.total3{
+  margin: 10px 605px;
+  padding:40px 0;
+  
+}
+.shuoming3{
+ float: left;
+ font-size: 14px;
+ margin: -90px 195px;
+
+}
+.total4{
+  margin: 0px 270px;
+  padding:40px 0;
+  
+}
+.shuoming4{
+ float: left;
+ font-size: 14px;
+ margin: -110px 275px;
+
 }
 .d3_content{
-  width:1170px;
+  width:1270px;
   margin: 0 auto;
 }
 .d3_content_bottom{
@@ -203,6 +245,7 @@ margin:25px 20px;
  width:1270px;
  height:715px;
  margin:0 auto;
+ margin-bottom: 50px;
 }
 .d6_left{
  position:relative;
@@ -278,3 +321,107 @@ margin:25px 20px;
   width:1920px;
   margin:0 auto;
 }
+#choiceWindow{
+    display:none;
+    position:absolute;
+    top:25%;
+    left:35%;
+    width:450px;
+    padding:20px;
+    background:white;
+    z-index:2;
+    overflow: auto;
+}
+#backGround{
+    display:none;
+    position:absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    height:100%;
+    background: black;
+    z-index: 1;
+    -moz-opacity:0.8;
+    opacity:0.8;
+}
+#x{
+  float:right;
+}
+#x:hover{
+    cursor: pointer;
+}
+.Login{
+  position: relative;
+    margin: 40px 30px;
+}
+.Login>.floor1>h4{
+    font-weight: bold;
+}
+.Login>.floor1>span{
+    position: absolute;
+    top:5px;
+    left:135px;
+}
+.Login  a{
+    color:#29CDB5;
+}
+form{
+    width:340px;
+    height:238px;
+    margin: 30px 0px;
+}
+.Login form input{
+  width:340px;
+  height:34px;
+  padding:15px 5px;
+}
+.Login .input{
+  width:253px;
+  height:34px;
+  padding:15px 15px;
+  vertical-align: middle;
+}
+form .pwd input{
+    width:13px;
+    height:13px;
+    margin-left: 175px;
+}
+.Login button{
+    width:340px;
+    height:34px;
+    border:0;
+    color:white;
+    background: #29CDB5;
+    margin-top:10px;
+}
+.Login span,.Login a,.Login label{
+    font-size:14px;
+    
+}
+.check{
+  margin-top:70px;
+}
+.pwd{
+    margin: 10px 0;
+}
+.span{
+    width: 20%;
+    margin-left: 2%;
+    height: 40px;
+    background: #B0B0B0;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #797979;
+    cursor: pointer;
+    vertical-align:top
+}
+#Reg{
+  display:none;
+}
+
+
+
+
+
