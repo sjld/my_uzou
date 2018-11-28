@@ -1,0 +1,131 @@
+body{
+    background: #EFEFEF;
+}
+.uzou-hotel{
+    width:1170px;
+}
+.uzou-hotel>b{
+    color: #ccc;
+    font-size: 14px;
+    position:relative;
+    top:20px;
+}
+.uzou-hotel>.row{
+    margin-top:20px;
+}
+.uzou-hotel>.row>.col-lg-3{
+    width:291px;
+    margin-top:20px;
+    /*height:554px;*/
+}
+.uzou-hotel>.row>.col-lg-3>.bg-white>ul{
+    list-style: none;
+    width:255px;
+    margin: 0;
+    padding:0
+}
+.uzou-hotel>.row>.col-lg-3>.bg-white>ul>li{
+     padding: 10px 10px;
+     font-size: 14px;
+ }
+.uzou-hotel>.row>.col-lg-3>.bg-white>ul>li:hover{
+    background: greenyellow;
+    color:gray;
+    transition: all 0.5s;
+}
+.hide{
+    display:none;
+}
+.uzou-hotel>.row>.col-lg-3>.bg-white:before{
+    content:'';
+    display:table;
+}
+.uzou-hotel>.row>.col-lg-9 ul{
+    margin-left:-40px;
+    margin-top:10px;
+}
+.Li{
+    font-weight: bold;
+    border-bottom: 1px solid gray
+}
+.LI{
+    font-weight:bold;
+}
+.LI2{
+   position: relative;
+   left:-22px;
+   top:0px;
+}
+.uzou-hotel>.row>.col-lg-9 ul>li{
+    display: inline;
+    margin:0 20px;
+    font-size:14px;
+}
+.uzou-hotel>.row>.col-lg-9>.tab{
+    margin-left:0px;
+}
+.menu_top{
+    display: inline-block;
+    width: 10px;
+    height:10px;
+    border-top: 5px solid grey;
+    border-left: 5px solid #fff;
+    border-right: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+    margin:-7px 10px;
+}
+.menu_bottom{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 5px solid #fff;
+    border-left: 5px solid #fff;
+    border-right: 5px solid #fff;
+    border-bottom: 5px solid grey;
+    margin:6px -24px;
+}
+.block{
+    position:relative;
+    margin-top:20px;
+}
+.block>.right{
+   position:absolute;
+    top:10px;
+    left:305px;
+    padding-right:20px;
+}
+.block>img{
+    width:261px;
+    height:196px;
+}
+.block>.right>.price{
+    color:#F97500;
+    font-size: 23px;
+}
+.block>.right>.place{
+    font-weight: bold;
+}
+.block>.right>.intr{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow:hidden;
+    margin-top:10px;
+    font-size: 14px;
+}
+.block>.right>h6{
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+.menu_top,.menu_bottom{
+    cursor: pointer
+}
+.padding{
+    width:1920px;
+    margin:0 auto;
+  }
+
+
+
+
