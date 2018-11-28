@@ -87,20 +87,6 @@ $(function(){
     }
   })
 })
-/*$("#Login>.Login>:first-child>:last-child>:first-child").on("click",function(e){
-  e.preventDefault();
-  $("#Reg").show();
-  $("#Login").hide();
-});
-$("#Reg>.Login>:first-child>:last-child>:first-child").on("click",function(e){
-  e.preventDefault();
-  $("#Reg").hide();
-  $("#Login").show();
-})
-$("#x").on("click",function(){
-  $("#choiceWindow").slideUp(300);
-  $("#backGround").hide();
-})*/
 
 
 
