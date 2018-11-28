@@ -1,0 +1,247 @@
+header{
+    background: #38D3A8;
+   /* width:1920px;*/
+    height:80px;
+    position: relative;
+}
+.pic img{
+    position: relative;
+    left:200px;
+    margin:15px 0px;  
+}
+.middle{
+    position: absolute;
+    left:20%;
+    top:35%;
+}
+.middle span a{
+   margin-left:20px;
+   font-weight:bold;
+   font-size: 14px;
+}
+a,#signin{
+   text-decoration:none;
+   color:white;  
+   font-size: 14px;
+}
+.help{
+    position: absolute;
+    left:60%;
+    top:35%;
+}
+
+.help input{
+    width:232px;
+    height:30px;
+    border:0px;
+    font-size:14px;
+}
+.help>img{
+    position:relative;
+    left:-25px;
+    cursor: pointer
+}
+.help a{
+    font-size:14px;
+    margin-left:10px; 
+}
+#login{
+    position: relative;
+    top:8px;
+    left:-60px;
+}
+table a:hover{
+    color:red
+}
+#signin{
+    display:none;
+    margin-left:10px;
+}
+#choiceWindow{
+    display:none;
+    position:absolute;
+    top:200%;
+    left:35%;
+    width:450px;
+    padding:20px;
+    background:white;
+    z-index:2;
+    overflow: auto;
+}
+#backGround{
+    display:none;
+    position:absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    height:2000%;
+    background: black;
+    z-index: 1;
+    -moz-opacity:0.8;
+    opacity:0.8;
+}
+#x{
+  float:right;
+}
+#x:hover{
+    cursor: pointer;
+}
+.Login{
+  position: relative;
+    margin: 40px 30px;
+}
+.Login>.floor1>h4{
+    font-weight: bold;
+}
+.Login>.floor1>span{
+    position: absolute;
+    top:5px;
+    left:135px;
+}
+.Login  a{
+    color:#29CDB5;
+}
+form{
+    width:340px;
+    height:238px;
+    margin: 30px 0px;
+}
+.Login form input{
+  width:340px;
+  height:34px;
+  padding:15px 5px;
+}
+.Login .input{
+  width:253px;
+  height:34px;
+  padding:15px 15px;
+  vertical-align: middle;
+}
+form .pwd input{
+    width:13px;
+    height:13px;
+    margin-left: 175px;
+}
+.Login button{
+    width:340px;
+    height:34px;
+    border:0;
+    color:white;
+    background: #29CDB5;
+}
+.Login span,.Login a,.Login label{
+    font-size:14px;
+}
+.pwd{
+    margin: 10px 0;
+}
+.span{
+    width: 20%;
+    margin-left: 2%;
+    height: 40px;
+    background: #B0B0B0;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #797979;
+    cursor: pointer;
+    vertical-align:top
+}
+#Reg{
+  display:none;
+}
+#signout{
+    display:none;
+}
+#place{
+ width:232px;
+ height:213px;
+ background: #fff;
+ font-size:14px;
+ position: absolute;
+ top:80%;
+ left:60%;
+ z-index: 10;
+ display:none;
+}
+#place::before{
+    content:'';
+    display:table;
+}
+.td{
+    padding-right:10px;
+    width:50px;
+    font-weight: bold;
+}
+#place h6{
+    color:#38D3A8;
+    font-size:14px;
+   position: relative;
+   top:15px;
+   left:15px;
+    font-weight:bold;
+}
+#place table{
+    width:232px;
+   height:195px;
+   margin:10px;
+}
+#place td a{
+    text-decoration: none;
+    color:black
+}
+.CLASS{
+    margin:-40px 290px;
+}
+.CLASS2{
+    position: relative;
+    top:5px;
+    left:65%;
+}
+#image{
+    display:none;       
+    margin:5px 10px;
+   
+}
+.UL{
+    margin:0 5px;
+    padding:0;
+    list-style: none;
+    width:165px;
+    height:273px;
+    background: #0A9B7A;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    position: absolute;
+    top:40px;
+    left:45%;
+    display:none;
+    z-index: 100
+}
+.UL>li{
+    margin:9px 30px;
+  padding:5px 5px;    
+}
+header.LI{
+    margin:5px 10px  !important;
+    padding:0 !important;
+    border-bottom: 1px solid gray;
+}
+.LI>img{
+    border:0;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
