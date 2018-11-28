@@ -1,0 +1,74 @@
+
+document.write(" <scr"+"ipt lanague=\"javascript\" src=\"public/js/jquery.qrcode.min.js\"> <\/scri"+"pt>");
+//document.write(" <scr"+"ipt lanague=\"javascript\" src=\"public/js/date.js\"> <\/scri"+"pt>");
+    function myAjax(url,datas,successFn)
+  {
+  	$.ajax({
+   			url:url,
+   			type:"post",
+   			data:datas,
+   			dataType:"json",
+   			success:successFn,
+   			error:function(){
+   				alert("出错");
+   				clearInterval(mysetInterval);
+   			}
+   		});
+  }
+var myDate = new Date();
+var mysetInterval= "";
+	
+	
+	
+	//取二维码
+	function loadQrcode()
+	{
+		var successFn = function(data){
+			$('.weideng .erqem').html("");
+			if(data.status==0){
+			
+				$('.weideng .erqem').qrcode({width:200,height:200,correctLevel:0,text:data.url});	
+				load(data.uuid);	
+			}else{
+				alert("获取二维码出错误");
+			}		
+		};
+	
+		  $.ajax({url:"http://weixin.uzou.com.cn/load_", 
+		        data: {  
+		        },  
+		        dataType: 'jsonp',  
+		        crossDomain: true,  
+		        success: function(data) {
+		        	  successFn(data);
+		        }  
+		      });  
+	}
+	var i=0;
+	function load(uuid)
+	{
+		i++;
+		var successFn = function(data){
+		if(data=="success"){
+				window.location.reload(true);
+				return;
+			}//else if(data=="buchong"){
+				//window.location.reload(true);
+			//}
+			else{
+			//	var myDate1 = new Date();
+			//var i = myDate.DateDiff("s",myDate1);
+				clearInterval(mysetInterval);
+				if(i>900)
+				{
+					loadQrcode();
+					i=0;
+				}else
+				{
+					mysetInterval=setInterval("load('"+uuid+"')",1000);
+				}
+			}
+		};
+		myAjax("loadUserBasic", {"userName":uuid}, successFn);
+	
+	}

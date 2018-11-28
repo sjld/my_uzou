@@ -1,0 +1,175 @@
+/**
+ * 创建产品列表
+ * @param message 产品数据
+ * @param isLogin 是否登陆 Boolean
+ * @param userType 用户类型 0：一般，1：企业
+ */
+function creatProducHtml(message,isLogin,userType, callBack) {
+	if(!message){
+		$('#goods_list').html('');
+		return;
+	}
+var html = '';		
+	$.each(message,function(i, item){
+		var isShowB = true;
+		if((isLogin||userType== '0')&&item.tobtoctype=='2'){
+			isShowB = false;
+		}
+		if(isShowB) {
+			var labelUrls = item.labelUrls;
+			var price = '' ;
+			var labelHtml = '';
+			if(userType != '1'){
+				price += '<p class="produc-price text_overflow">' + item.symbol + ' '+changemoney(item.lowestPrice_toc) + ' 起 </p>';
+			} else{
+				if(item.tobtoctype == 0){
+					price += '<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_geren_icon.png" /> '+ item.symbol + ' ' + changemoney(item.lowestPrice_toc) + '起</p>';
+				}else if(item.tobtoctype == 1){
+					price += '<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_geren_icon.png" /> '+ item.symbol + ' ' +changemoney(item.lowestPrice_toc) + '起</p>' + 
+					'<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_qiye_icon.png" />' + item.symbol+' ' + changemoney(item.lowestPrice_tob) + '起</p>';
+				} else if(item.tobtoctype == 2){
+					price += '<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_qiye_icon.png" /> '+ item.symbol+ ' ' +changemoney(item.lowestPrice_tob) + '起</p>';
+				}
+			}
+			if(labelUrls){
+				var labelUrlsList = labelUrls.split(",");
+				$.each(labelUrlsList,function(i,iconUrl){
+					labelHtml+=' <img src="'+iconUrl+'" alt="" width="40">';
+		    	});
+			}
+			html+=' <div class="listall"><div class="listdetail"><div class="row" ><div class="col-md-4">'+
+			' <div class="nationna"><div class="nationimg">'+
+			' <a target="_blank" href="detialComm_commProduct?id='+item.id+'"><img src="public/images/main-no/uzou-loading-tmp.png" data-original="' + item.bigpicture + '" ></a>'+
+			' </div></div></div>'+
+			' <div class="col-md-8">'+
+			' <div class="row">'+
+			' <div class="col-md-12">'+
+			' <div class="shuoming"><p>'+
+			' <span class="current">'+price+' </span></p>'+
+			' <a target="_blank"href="detialComm_commProduct?id='+item.id+'" class="us_htil"><h5>'+item.NAME+'</h5></a>'+
+			' <p class="dsvsas">'+item.introduction+'</p>'+
+			' <div class="goods_pic">'+
+			' <span>'+labelHtml+'</span></div>'+
+			' <div class="dengjirel" >'+
+			' <span class="reqi">卖家：'+item.nickname+'</span>'+
+		 				' </div></div></div></div></div></div></div></div>';
+			
+		}
+	});
+	if (callBack&&typeof callBack === 'function') {
+		callBack();
+	}
+	$('#goods_list').html(html);
+	setTimeout(function(){
+		$(".nationimg img").lazyload({ 
+			effect: "fadeIn"
+		});
+	},1000);  
+}
+/**
+ * 创建产品列表,不跟新dom
+ * @param message 产品数据
+ * @param isLogin 是否登陆 Boolean
+ * @param userType 用户类型 0：一般，1：企业
+ */
+function creatProducHtmlEx(message,isLogin,userType) {
+	if(!message){
+		return;
+	}
+var html = '';		
+	$.each(message,function(i, item){
+		var isShowB = true;
+		if((isLogin||userType== '0')&&item.tobtoctype=='2'){
+			isShowB = false;
+		}
+		if(isShowB) {
+			var labelUrls = item.labelUrls;
+			var price = '' ;
+			var labelHtml = '';
+			if(userType != '1'){
+				price += '<p class="produc-price text_overflow">' + item.symbol + ' '+changemoney(item.lowestPrice_toc) + ' 起 </p>';
+			} else{
+				if(item.tobtoctype == 0){
+					price += '<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_geren_icon.png" /> '+ item.symbol + ' ' + changemoney(item.lowestPrice_toc) + '起</p>';
+				}else if(item.tobtoctype == 1){
+					price += '<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_geren_icon.png" /> '+ item.symbol + ' ' +changemoney(item.lowestPrice_toc) + '起</p>' + 
+					'<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_qiye_icon.png" />' + item.symbol+' ' + changemoney(item.lowestPrice_tob) + '起</p>';
+				} else if(item.tobtoctype == 2){
+					price += '<p class="produc-price product_list_item_icon text_overflow"><img src="public/images/mian-c/price_qiye_icon.png" /> '+ item.symbol+ ' ' +changemoney(item.lowestPrice_tob) + '起</p>';
+				}
+			}
+			if(labelUrls){
+				var labelUrlsList = labelUrls.split(",");
+				$.each(labelUrlsList,function(i,iconUrl){
+					labelHtml+=' <img src="'+iconUrl+'" alt="" width="40">';
+		    	});
+			}
+			html += '<div class="w10chan">'+
+							'<div class="listall">'+
+							'<div class="listdetail">'+
+    						'<div class="row">'+
+							'<div class="col-md-4">'+
+							'<div class="nationimg">'+
+									'<a target="_blank" href="detialComm_commProduct?id='+item.id+'"><img src="public/images/main-no/uzou-loading-tmp.png" data-original="' + item.bigpicture + '" alt="" ></a>'+
+											'</div>'+
+										'</div>'+
+										'<div class="col-md-8 move30">'+
+											'<div class="row">'+
+												'<div class="col-md-12">'+
+														'<div class="shuoming"><p>'+
+														price+'</p>'+
+															'<a target="_blank" href="detialComm_commProduct?id='+item.id+'" class="us_htil"><h5>'+item.NAME+'</h5></a>'+
+															' <p class="dsvsas">'+item.introduction+'</p>'+
+															' <div class="goods_pic">'+
+															' <span>'+labelHtml+'</span></div>'+
+															'	<div class="dengjirel" >'+
+															' <span class="reqi">卖家：'+item.nickname+'</span>'+
+															'</div>'+
+														'</div>'+
+												'</div>'+
+											'</div>'+
+										'</div>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+		}
+	});
+	return html;
+}
+
+
+/**
+ * 创建热门推荐产品,不更新dom
+ * @param message 产品数据
+ */
+function creatProducHtmlHot(message) {
+	if(!message){
+		return;
+	}
+var hot_com_html = '';
+hot_com_html += '<h3 class="hot_recommended">热门推荐</h3>';
+hot_com_html += '<ul>';
+	$.each(message,function(i, item){
+		var picSrc = "";
+		var picArr = new Array();
+		picArr = (item.show_picture).split(",");
+		if(picArr.length>0){
+			picSrc = picArr[0];
+		}
+		var showadsexplain1 = item.showadsexplain1!=null?item.showadsexplain1:"";
+		hot_com_html += '<li>'+
+							'<div class=jjkll>'+
+							'<a target="_blank" href="'+item.load+'">'+
+							'<span><img src="'+picSrc+'" alt="">'+
+							'</span>'+
+							'</a>'+
+							'<div class="visa_right_txt visa_right_txt_two">'+
+    	 	  	 			'<h3>'+showadsexplain1+'</h3>'+
+    	 	  	 			'</div>'+
+							'</div>'+
+						'</li>';
+		});
+hot_com_html += '</ul>';
+	return hot_com_html;
+}

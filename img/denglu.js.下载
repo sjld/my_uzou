@@ -1,0 +1,248 @@
+function buchong(name,phone,email){
+	var html="<div class=\"relaea4\" style=\"position:fixed; width:100%; height:100%; -pie-background:rgba(255,255,255,0.7);background:rgba(0,0,0,0.8);behavior: url(public/css/pie.htc);z-index:99999;\">"
+			+"<div class=\"editer-tan\" style=\"background: #fff;position: relative;z-index: 9999;top: 150px;left: 50%;margin-left: -190px;width: 450px;overflow: hidden;\">"
+			+"<div class=\"col-md-12\">"
+			+"<div class=\"row logo-tile\" style=\"margin: 30px 0 30px 0;padding: 0 40px;position: relative;\">"
+			+"<div class=\"logo-message\">"
+			+"<h3>请完善个人信息！</h3>"
+			+"</div>"
+			+"<form class=\"form-logn\">"
+			+"<div class=\"form-group  qingchu\">";
+	if(phone==""){
+		html=html+"<div class=\"passwordya\">"
+			+"<input type=\"text\" class=\"form-control dhklll ahsjoo\" id=\"dlphone\" placeholder=\"手机\">"
+			+"<span onclick=\"shurphonedl()\" id=\"yanzmaphonedl\">点击获取验证码</span>"
+			+"</div>"
+			+"</div>"
+			+"<div class=\"form-group yzmx qingchu\">"
+			+"<input type=\"text\" class=\"form-control dhklll\" id=\"phoneyzmdl\" placeholder=\"输入手机验证码\">"
+			+"</div>";
+	};
+	if(email==""){
+		html=html+"<div class=\"form-group\">"
+			+"<div class=\"passwordya qingchu\">"
+			+"<input type=\"text\" class=\"form-control dhklll ahsjoo\" id=\"dlemail\" placeholder=\"邮箱\">"
+			+"<span onclick=\"shuremaildl()\" id=\"yanzmaemaildl\">点击获取验证码</span>"
+			+"</div>"
+			+"</div>"
+			+"<div class=\"form-group yzmx qingchu\">"
+			+"<input type=\"text\" class=\"form-control dhklll\" id=\"emailyzmdl\" placeholder=\"输入邮箱验证码\">"
+			+"</div>";
+	};
+	if(name==""){
+		html=html+"<div class=\"form-group\">"
+			+"<div class=\"passwordya qingchu\">"
+			+"<input type=\"text\" class=\"form-control dhklll\" id=\"nichengdl\" placeholder=\"用户名\" onblur=\"idhaveajaxdl()\">"
+			+"</div>"
+			+"</div>";
+	};
+		html=html+"<div class=\"form-group\">"
+			+"<button class=\"btn col-md-12 tyvbcf btn-success\" onclick=\"changephonedl(\'"+name+"\',\'"+phone+"\',\'"+email+"\');\" type=\"button\">保存</button>"
+			+"</div>"
+			+"</form>"
+			+"</div>"
+			+"</div>"
+			+"</div>"
+			+"</div>";
+		return html;
+}
+
+var timephone=60;
+function settimephonedl(){
+	if(timephone==0){
+		timephone=60;
+		$("#yanzmaphonedl").text("点击获取验证码");
+		$("#yanzmaphonedl").click(function(){
+			shurphonedl();
+		});
+	}else{
+		$("#yanzmaphonedl").text(timephone+"秒后重新发送");
+		timephone--;
+		setTimeout("settimephonedl()",1000) ;
+	}
+}
+
+function shurphonedl(){
+	var phone=$("#dlphone").val();
+	if(phone==null||phone==''){
+			alert("请输入手机！");
+	}else{
+		$.ajax({
+			url:"sendYzmphoneUserBasic1",
+			type:"POST",
+			data:{
+				"userName":phone
+			},
+			dataType:"json",
+			success:function(data)
+			{
+				if(data=="success"){
+					$("#yanzmaphonedl").removeAttr("onclick");
+					$("#yanzmaphonedl").text("60秒后重新发送");
+					settimephonedl(timephone);
+		    		alert("验证码已发送");
+		    	}else if(data=="noemil"){
+		    		alert("格式不正确!");
+		    	}else if(data=="cunzai"){
+		    		alert("手机已被使用!");
+		    	}
+			}
+		});
+	}
+}
+
+var timeemail=60;
+function settimeemaildl(){
+	if(timeemail==0){
+		timeemail=60;
+		$("#yanzmaemaildl").text("点击获取验证码");
+		$("#yanzmaemaildl").click(function(){
+			shuremaildl();
+		});
+	}else{
+		$("#yanzmaemaildl").text(timeemail+"秒后重新发送");
+		timeemail--;
+		setTimeout("settimeemaildl()",1000) ;
+	}
+}
+function shuremaildl(){
+	var email=$("#dlemail").val();
+	if(email==null||email==''){
+			alert("请输入邮箱！");
+	}else{
+		$.ajax({
+			url:"sendYzmEmailUserBasic1",
+			type:"POST",
+			data:{
+				"userName":email
+			},
+			dataType:"json",
+			success:function(data)
+			{
+				if(data=="success"){
+					$("#yanzmaemaildl").removeAttr("onclick");
+					$("#yanzmaemaildl").text("60秒后重新发送");
+					settimeemaildl();
+		    		alert("验证码已发送");
+		    	}else if(data=="noemil"){
+		    		alert("格式不正确!");
+		    	}else if(data=="cunzai"){
+		    		alert("邮箱已被使用!");
+		    	}
+			}
+		});
+	}
+}
+//用户名唯一
+function idhaveajaxdl(){
+	var userName=$("#nichengdl").val();
+	if(userName==null||userName==''){
+		alert("请先填写用户名");
+	}else if(!isone(userName)){
+		alert("格式不正确");
+	}else{
+		$.ajax({
+		    url: "ishaveUserBasic1",
+		    type: "POST",
+		    dataType:"json",
+		    data: {
+		    	"userName":userName
+		    },
+		    success:function(date){
+		    	if(date=='error'){
+		    		alert("用户名已经存在");
+		    	}
+		    },
+			    error:function(){
+			    	$(".mask").show();
+					$(".resign-text").show();
+			    }
+	 	});
+	}
+}
+
+//修改用户信息
+function changephonedl(names,phones,emails){
+	var phone=$("#dlphone").val();
+	var yzmph=$("#phoneyzmdl").val();
+	var email=$("#dlemail").val();
+	var yzmem=$("#emailyzmdl").val();
+	var name=$("#nichengdl").val();
+	if(phones==""&&(phone==null||phone=='')){
+		alert("请先填写手机");
+	}else if(phones==""&&(yzmph==null||yzmph=='')){
+		alert("请先填写手机验证码");
+	}else if(emails==""&&(email==null||email=='')){
+		alert("请先填写邮箱");
+	}else if(emails==""&&(yzmem==null||yzmem=='')){
+		alert("请先填写邮箱验证码");
+	}else if(names==""&&(name==null||name=='')){
+		alert("请先填写用户名");
+	}else{
+		$.ajax({
+		    url: "updateepuUserBasic1",
+		    type: "POST",
+		    dataType:"json",
+		    data: {
+		    	"phone":phone,
+		    	"yanzemgmaph":yzmph,//手机验证码
+		    	"userName":email,
+		    	"yanzemgma":yzmem,//邮箱验证码
+		    	"yonghuname":name//用户名
+		    },
+		    success:function(date){
+		    	if(date=='success'){
+		    		window.location.reload();
+		    	}
+		    	if(date=='pherror'){
+		    		alert("手机验证码不正确");
+		    	}
+		    	if(date=='emerror'){
+		    		alert("邮箱验证码不正确");
+		    	}
+		    	if(date=='errorem'){
+		    		alert("邮箱已经被使用");
+		    	}
+		    	if(date=='erroryh'){
+		    		alert("用户名已经被使用");
+		    	}
+		    	if(date=='errorph'){
+		    		alert("手机已经被使用");
+		    	}
+		    },
+			    error:function(){
+			    	$(".mask").show();
+					$(".resign-text").show();
+			    }
+	 	});
+	}
+}
+
+//验证注册用户名唯一
+function yonghumingajax(){
+	var userName=$("#yonghuname").val();
+	if(userName==null||userName==''){
+		alert("请先填写用户名");
+	}else if(!isone(userName)){
+		alert("格式不正确");
+	}else{
+		$.ajax({
+		    url: "ishaveyhmUserBasic1",
+		    type: "POST",
+		    async: false,
+		    dataType:"json",
+		    data: {
+		    	"userName":userName
+		    },
+		    success:function(date){
+		    	if(date=='cunzai'){
+		    		alert("用户名已经存在");
+		    	}
+		    },
+			    error:function(){
+			    	$(".mask").show();
+					$(".resign-text").show();
+			    }
+	 	});
+	}
+}

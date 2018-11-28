@@ -1,0 +1,270 @@
+/**
+ * 临时账号升级正式账号-相关js
+ */
+
+function settimeemailzcupre() {
+	if (timeemailzc == 0) {
+		timeemailzc = 60;
+		$("#yanzmaupre").text("点击获取验证码");
+		$("#yzmszc").attr("onclick", "shurupre()");
+	} else {
+		$("#yanzmaupre").text(timeemailzcupre + "秒后才可重新发送");
+		timeemailzcupre--;
+		setTimeout("settimeemailzcupre()", 1000);
+	}
+}
+function shurupre(){
+	var username = $("#userNameregupre").val();
+	$("#stishiupre").hide();
+	$("#stishi1upre").text("");
+	$("#stishi1upre").hide();
+	$("#yzmstishiupre").text("");
+	$("#yzmstishiupre").hide();
+	$("#mmtishiupre").text("");
+	$("#mmtishiupre").hide();
+	$("#stishiupre").text("");
+	if (username == null || username == '') {
+		$("#stishiupre").show();
+		$("#stishi1upre").text("");
+		$("#stishi1upre").hide();
+		$("#yzmstishiupre").text("");
+		$("#yzmstishiupre").hide();
+		$("#mmtishiupre").text("");
+		$("#mmtishiupre").hide();
+		$("#stishiupre").text("请输入邮箱或手机！");
+	} else {
+		$.ajax({
+			url : "sendYzmUserBasic1",
+			type : "POST",
+			data : {
+				"userName" : username
+			},
+			dataType : "json",
+			success : function(data) {
+				if (data == "success") {
+					$("#yanzmaupre").removeAttr("onclick");
+					$("#yanzmaupre").text("60秒后才可重新发送");
+					settimeemailzcupre();
+					$("#yzmstishiupre").show();
+					$("#yzmstishiupre").text("验证码已发送");
+				} else if (data == "noemil") {
+					$("#stishiupre").text("格式不正确!");
+					$("#stishiupre").show();
+				} else if (data == "cunzai") {
+					$("#stishiupre").show();
+					$("#stishiupre").text("用户已经存在");
+				}
+			}
+		});
+	}
+}
+
+/**
+ * 临时账号升级正式账号-完善资料
+ */
+function accountTypeUpRe() {
+	var username = $("#userNameregupre").val();
+	var userpassword = $("#userPassWordregupre").val();
+	var yanzhengma = $("#yanzhengmaupre").val();
+	var querenmima = $("#querenmimaupre").val();
+	var yonghuname = $("#yonghunameupre").val();
+	if (username == null || username == '') {
+		$("#stishiupre").show();
+		$("#stishi1upre").text("");
+		$("#stishi1upre").hide();
+		$("#yzmstishiupre").text("");
+		$("#yzmstishiupre").hide();
+		$("#mmtishiupre").text("");
+		$("#mmtishiupre").hide();
+		$("#yhmstishiupre").text("");
+		$("#yhmstishiupre").hide();
+		$("#stishiupre").text("请输入手机号！");
+	} else if (yanzhengma == null || yanzhengma == '') {
+		$("#yzmstishiupre").show();
+		$("#stishi1upre").text("");
+		$("#stishi1upre").hide();
+		$("#mmtishiupre").text("");
+		$("#mmtishiupre").hide();
+		$("#yzmstishiupre").text("请输入验证码！");
+		$("#stishiupre").hide();
+		$("#stishiupre").text("");
+		$("#yhmstishiupre").text("");
+		$("#yhmstishiupre").hide();
+	} else if (userpassword == null || userpassword == '') {
+		$("#stishiupre").text("");
+		$("#stishiupre").hide();
+		$("#yzmstishiupre").text("");
+		$("#yzmstishiupre").hide();
+		$("#mmtishiupre").text("");
+		$("#mmtishiupre").hide();
+		$("#stishi1upre").show();
+		$("#stishi1upre").text("请输入密码！");
+		$("#yhmstishiupre").text("");
+		$("#yhmstishiupre").hide();
+	} else if (querenmima == null || querenmima == '') {
+		$("#stishiupre").text("");
+		$("#stishiupre").hide();
+		$("#yzmstishiupre").text("");
+		$("#yzmstishiupre").hide();
+		$("#stishi1upre").text("");
+		$("#stishi1upre").hide();
+		$("#mmtishiupre").show();
+		$("#mmtishiupre").text("请再次输入密码！");
+		$("#yhmstishiupre").text("");
+		$("#yhmstishiupre").hide();
+	} else if (querenmima != userpassword) {
+		$("#stishiupre").text("");
+		$("#stishiupre").hide();
+		$("#yzmstishiupre").text("");
+		$("#yzmstishiupre").hide();
+		$("#stishi1upre").text("");
+		$("#stishi1upre").hide();
+		$("#mmtishiupre").show();
+		$("#mmtishiupre").text("两次密码不一致！");
+		$("#yhmstishiupre").text("");
+		$("#yhmstishiupre").hide();
+	} else {
+		$("#stishiupre").text("");
+		$("#stishi1upre").text("");
+		$("#stishiupre").hide();
+		$("#stishi1upre").hide();
+		$("#yzmstishiupre").text("");
+		$("#yzmstishiupre").hide();
+		$("#mmtishiupre").text("");
+		$("#mmtishiupre").hide();
+		$("#yhmstishiupre").text("");
+		$("#yhmstishiupre").hide();
+		$.ajax({
+			type : "POST",
+			url : "accountTypeUpReUserBasic1",
+			data : {
+				"userName" : username,
+				"userPassWord" : userpassword,
+				"yanzemgma" : yanzhengma,
+				"yonghuname" : yonghuname
+			},
+			async : false,
+			dataType : "json",
+			success : function(date) {
+				if (date == "yanzemgma") {
+					$("#yzmstishiupre").show();
+					$("#yzmstishiupre").text("验证码错误！");
+				} else if (date == "cunzai") {
+					$("#stishiupre").show();
+					$("#stishiupre").text("邮箱已存在！");
+				} else if (date == "yonghu") {
+					$("#yhmstishiupre").show();
+					$("#yhmstishiupre").text("用户已存在！");
+				} else if (date == "success") {
+					$(".account-type-register").hide();
+					window.location.reload();
+					alert("资料已完善!");
+				}
+			}
+		});
+	}
+}
+/**
+ * 临时账号升级正式账号-绑定已有账号
+ */
+function accountTypeUpBi() {
+	var username = $("#userNameloginupbi").val();
+	var userpassword = $("#userPassWordloginupbi").val();
+	var useryzmlogin = $("#useryzmloginupbi").val();
+	var obj = document.getElementsByName('checkbox3');
+	var checkbox = "";
+	if (obj[0].checked) {
+		checkbox = obj[0].value;
+	}
+	if (username == null || username == '') {
+		$("#tishi1upbi").text("");
+		$("#tishi1upbi").hide();
+		$("#tishidlyzmupbi").hide();
+		$("#tishidlyzmupbi").text("");
+		$("#tishiupbi").show();
+		$("#tishiupbi").text("请输入用户名！");
+	} else if (userpassword == null || userpassword == '') {
+		$("#tishiupbi").text("");
+		$("#tishiupbi").hide();
+		$("#tishidlyzmupbi").hide();
+		$("#tishidlyzmupbi").text("");
+		$("#tishi1upbi").show();
+		$("#tishi1upbi").text("请输入密码！");
+	} else if (useryzmlogin == null || useryzmlogin == '') {
+		$("#tishiupbi").text("");
+		$("#tishiupbi").hide();
+		$("#tishi1upbi").hide();
+		$("#tishi1upbi").text("");
+		$("#tishidlyzmupbi").show();
+		$("#tishidlyzmupbi").text("请输入验证码！");
+	} else {
+		$("#tishi1upbi").text("");
+		$("#tishiupbi").text("");
+		$("#tishiupbi").hide();
+		$("#tishi1upbi").hide();
+		$("#tishidlyzmupbi").hide();
+		$("#tishidlyzmupbi").text("");
+		$.ajax({
+			url : "accountTypeBiUserBasic1",
+			type : "POST",
+			async : false,
+			dataType : "json",
+			data : {
+				"userName" : $("#userNameloginupbi").val(),
+				"userPassWord" : $("#userPassWordloginupbi").val(),
+				"useryzmlogin" : useryzmlogin,
+				"checkbox" : checkbox
+			},
+			success : function(date) {
+				if (date == "success") {
+					window.location.reload();
+				} else if (date == "mimabuzhengque") {
+					$("#tishiupbi").hide();
+					$("#tishiupbi").text("");
+					$("#tishidlyzmupbi").hide();
+					$("#tishidlyzmupbi").text("");
+					$("#tishi1upbi").show();
+					$("#tishi1upbi").text("密码不正确！");
+				} else if (date == "bucunzai") {
+					$("#tishi1upbi").hide();
+					$("#tishi1upbi").text("");
+					$("#tishidlyzmupbi").hide();
+					$("#tishidlyzmupbi").text("");
+					$("#tishiupbi").show();
+					$("#tishiupbi").text("用户不存在！");
+				} else if (date == "yzmcw") {
+					$("#tishiupbi").hide();
+					$("#tishiupbi").text("");
+					$("#tishi1upbi").hide();
+					$("#tishi1upbi").text("");
+					$("#tishidlyzmupbi").show();
+					$("#tishidlyzmupbi").text("验证码错误！");
+				} else if (date == "businessStatusErr") {
+					$("#tishiupbi").hide();
+					$("#tishiupbi").text("");
+					$("#tishi1upbi").hide();
+					$("#tishi1upbi").text("");
+					$("#tishidlyzmupbi").show();
+					$("#tishidlyzmupbi").text("企业用户未通过审核！");
+				} else {
+					window.location.reload();
+				}
+			}
+		});
+	}
+};
+
+/**
+ * 临时账号升级正工账号
+ */
+function accountTypeUp() {
+	$(".mask").css("top", 1);
+	$(".mask").show();
+	$(".mask").css("top", 1);
+	$(".logo-text").hide();
+	$(".resign-text").hide();
+	// $(".logindeng").show();
+	// $(".weideng").hide();
+	$(".account-type-bind").hide();
+	$(".account-type-register").show();
+}

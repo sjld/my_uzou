@@ -1,0 +1,805 @@
+			
+
+
+
+
+
+
+
+
+
+
+
+
+function leftnavResponsivePIN(){
+	$(".lux-pin-fixed,.lux-index,.lux-indexopacity").height($(window).height());
+	/*高奢左侧小导航效果*/
+	/*$(".lux-cur li").mouseenter(function(){
+		$(".lux-cur li:gt(0)").removeClass('cur');
+		$(".lux-cur li span:gt(0)").css({'opacity':"0.6"});
+			$(this).addClass('cur');
+			$('span',this).css({'opacity':"1"});
+		})	*/
+	    $(".lux-cur li.cur").css("margin-left","-10px");
+		$(".lux-cur li").click(function(){
+			$(".lux-cur li").removeClass('cur');
+			$(".lux-cur li span").css({'opacity':"0.6"});
+			$(this).addClass('cur');
+			$(".lux-cur li").css("margin-left","0px");
+			$(this).css("margin-left","-10px");
+			$('span',this).css({'opacity':"1"});
+			$(".lux-pinRii .row").hide();
+			$(".lux-pinRii .row").eq($(this).index()).show();
+			///$(".lux-pinRi h4").text($(".lux-cur li span").eq($(this).index()).text());
+		})
+		
+		
+		
+		$(".lux-pin-fixedleft,.lux-pin-persor").mouseenter(function(event) {
+			$(this).hide();
+			$(".lux-pinLL").hide();
+			$(".lux-pin-persor").hide();
+			$(".lux-index").animate({"left":"0"},400);
+			$(".lux-indexopacity").animate({"left":"0"},400);
+			$(".lux-indextan").animate({"left":"0"},400);
+			$(".lux-login").animate({"left":"0"},400);
+		});
+		$(".lux-index").mouseleave(function(event) {	
+			$(".lux-index").animate({"left":"-247px"},100);
+			$(".lux-indexopacity").animate({"left":"-247px"},100);
+			$(".lux-indextan").animate({"left":"-247px"},100);
+			$(".lux-login").animate({"left":"-247px"},100);		
+			$(".lux-pin-persor").show();
+			$(".lux-pin-fixedleft").show();
+			$(".lux-pinLL").show();
+						
+		});
+}
+function changeHeight(){               
+    $(".lux-pin-fixed,.lux-index,.lux-indexopacity").height($(window).height());
+    $(".lux-indeximg img,.lux-index-first,.lux-index-two,lux-index-two img").height($(window).height());	
+}
+function changeHeightStyle(){
+	if($(window).height()<850 && $(window).height()>650){
+			$(".lux-indextan ul li a").css({"line-height":"22px","height":"22px"});
+			$(".search").css("margin","10px 0");
+			$(".lux-logo").css("max-width","30%");	
+			$(".lux-login").css({"height":"30px","line-height":"30px"});
+			$(".lux-login a").css({"font-size":"14px"});
+		}
+		else if($(window).height()<=650){
+			$(".lux-indextan ul li a").css({"line-height":"18px","height":"18px"});
+			$(".search").css("margin","6px 0");
+			$(".lux-logo").css({"max-width":"20%","marginTop":"10px"});
+			$(".lux-indextan ul").css("margin","10px 0");
+			$(".lux-login").css({"height":"30px","line-height":"30px"});
+			$(".lux-login a").css({"font-size":"14px"});	
+		} 
+		
+		else{
+			$(".lux-indextan ul li a").css({"line-height":"38px","height":"38px"});
+			$(".search").css("margin","70px 0");
+			$(".lux-logo").css("max-width","100%");	
+		}
+}
+function changeHeighttiaokuan(){
+	if($(window).height()<850){
+			$(".w8tk h1 img").css({"max-width":"70%"});
+			$(".w8about").css("margin","10px auto 10px");
+			$(".w8por ul li img").css("max-width","80%");	
+			$(".w8por .w8yq li").css({"margin":"2px"});
+			$(".w8por .w8yq li a").css({"font-size":"10px"});
+			$(".w8w img").css({"max-width":"25%"});
+			$(".w8weiwe").css({"margin-top":"10px"});
+		}
+		/*else if($(window).height()<=650){
+			$(".lux-indextan ul li").css({"line-height":"22px","height":"22px"});
+			$(".search").css("margin","6px 0");
+			$(".lux-logo").css({"max-width":"30%","marginTop":"10px"});
+			$(".lux-indextan ul").css("margin","10px 0");
+			$(".lux-login").css({"height":"30px","line-height":"30px"});
+			$(".lux-login a").css({"font-size":"14px"});
+			
+		} */
+		
+		else{
+			$(".w8tk h1 img").css({"max-width":"111px"});
+			$(".w8about").css("margin","10px auto 30px");
+			$(".w8por ul li img").css("max-width","100%");	
+			$(".w8por .w8yq li").css({"margin":"4px"});
+			$(".w8por .w8yq li a").css({"font-size":"12px"});
+			$(".w8w img").css({"max-width":"30%"});
+			$(".w8weiwe").css({"margin-top":"30px"});
+		}
+}
+var marknum=0;
+function setMyheight(obj,classname,num)
+{
+	var height =$(obj).width()*num;
+	$(classname).css('height',height);
+	
+}
+
+
+function setMyHeigth2()
+{/*
+	var img = new Image();
+	img.onload = function(){
+		$(".luxopooo img").css("height",$(".luxopooo img").eq(0).width()*0.68);	
+		alert($(".luxopooo img").height());
+	};
+	img.src = "public/images/lux-no/11.png";
+	*/
+	$(".luxopooo img").css("height",$(".luxopooo img").eq(0).width()*1);	
+	$(".uzoushopls").css("height",$("body").width()*0.32);	
+	//$(".yrrrf").css("height",$(".carousel-inner").width()*0.35)	
+	var width =$(".carousel-inner").width();
+	$(".carousel-inner img").not($(".uzoushopls")).css("height",width*0.35);
+}
+
+function setimg()
+{
+//	$("img").error(function(){
+//		$(this).attr("src","");
+//	});
+	var ss= document.getElementsByName("luxopoooimg");
+	alert(ss[0].width);
+	if(ss.length>0)
+	{
+		if(ss[0].complete) 
+		{
+			var wi=ss[0].width*1;
+			for ( var int = 0; int < ss.length; int++) {
+				ss[int].style.height =wi;
+			}
+				
+			
+		}else
+		{
+			setimg();
+		}	
+	}
+	
+}
+function isIE() { //ie?  
+    if (!!window.ActiveXObject || "ActiveXObject" in window)  
+        {return true;}  
+    else { 
+        return false;
+    }
+}
+function imgHeightchange(){
+	/*品牌主页*/
+
+	if(marknum==0)
+	{
+		if (isIE()){
+			// setimg();
+			}else
+			{
+				$(".luxopooo img").eq(0).load(function(){
+					
+					setMyheight(this,'.luxopooo img',1);
+				});//.attr("onload","setMyheight(this,'.luxopooo img',0.68)");
+			}	
+		$(".uzoushopls").css("height",$("body").width()*0.32);
+		$(".carousel-inner img").not($(".uzoushopls")).attr("onload","setMyHeigth2()");
+	}else
+	{
+		setMyHeigth2();
+	}	
+	/*品牌二级页*/
+	$(".tour-del_second-l img").css("height",$(".tour-del_second-l img").width()*0.35);
+	$(".p_ksfin").css("height",$(".ksfin").width()*0.889);
+	$(".ksfin").css("height",$(".ksfin").width()*0.889);
+	
+	$(".pinpai_huod img").css("height",$(".pinpai_huod img").width()*0.38);
+	$(".tour-del_second-r img").css("height",$(".tour-del_second-r img").width()*1);
+	/*五大类二级页*/
+	$(".erimg").css("height",$(".tour-del-conl img").width()*0.889);
+	/*活动详情页*/
+	$(".tour-del_secondjhkj img").css("height",$(".tour-del_secondjhkj img").width()*0.35);
+	/*投资移民三级页面*/
+	//$(".yrrrf").css("height",$(".yrrrf").width()*0.35);
+	$(".gmvkmds img").css("height",$(".gmvkmds img").width()*0.889);
+	/*旅游三级页面*/
+	$(".banner_tabljy ul img").not($(".banneoll img")).css("height",$(".banner_tabljy ul img").width()*0.889);
+	/*订单中心页面*/
+	$(".gfsd").css("height",$(".gfsd").width()*0.889);
+	$(".quekk").css("height",$(".quekk").width()*0.889);
+	if($(".quekk").attr("duanlebor")=="duanlebor")
+	{
+		setTimeout(function(){
+			$(".duanlebor").height($(".information_bd").height());
+		},200);
+	}
+	/*高奢首页*/
+	//$(".lux-indeximg img").css("height",$(".lux-indeximg img").width()*0.588);
+	//$(".lux-indexTwoimg li img").css("height",$(".lux-indexTwoimg li img").width()*1.63);
+	/*uzou首页*/
+	//$(".uzoushopls").css("height",$(".uzoushopls").width()*0.32);
+	/*uzou世界、中国*/
+	$(".jlsoo img").css("height",$(".main-rela img").width()*0.247);
+	/*uzou世界、中国*/
+}
+window.onresize=function(){ 
+		changeHeight();
+		changeHeightStyle();
+		changeHeighttiaokuan();
+		marknum=1;
+		imgHeightchange();
+            } 
+function uzounav(){
+	/*uzou导航效果*/
+			$(".worldnav li a").each(function(i) {
+				$(this).mouseenter(function(e) {
+				$(".worldnav li a").removeClass('worlddown');
+				$(this).addClass('worlddown');
+				$(this).css("color","#0d7558!important");
+				$(".world-downl ul li").hide();
+				$(".world-downl ul li").eq(i).stop().fadeIn(300);
+			})
+			});
+			$(".world-downl").mouseleave(function(e) {
+				$(this).find('li').stop().fadeOut(300);
+				$(".worldnav li a").removeClass('worlddown');
+				 e.stopPropagation();
+			});
+			
+} 
+var jjjj=0;
+function imgsamllLun(){
+	 var bigImgbi='';
+	  var _aindex=0;
+	  $(".goods_small_img li img").each(function(i){
+		  $(".goods_small_img li img").eq(i).attr("index",i);
+	  });
+	  $(".showxx").css("display","none");
+		  $(".big_img img").click(function(){
+			  	$(".showxx").css("display","block");
+			    $(".showxx").show();
+			    bigImgbi=$(this).attr("src");//获取点击图片的地址
+			    //alert(bigImg);
+			    $(".showxx img.bigbig").attr("src",bigImgbi); //更换大图的图片地址
+			    _aindex=$(this).attr("index");//保存图片的序列号
+			  }); 
+			  $(".rightri").click(function(){
+				  jjjj=1;
+				  _aindex++; //序列号加1 _index+1
+			    //alert(_index);
+			    if(_aindex>$(".goods_small_img li img").length-1){_aindex=0};
+			    bigImgbi=$(".goods_small_img li img").eq(_aindex).attr("src");
+			    $(".showxx img.bigbig").attr("src",bigImgbi);
+			  });
+			  $(".leftle").click(function(){
+				  jjjj=1;
+				  _aindex--; //序列号加1 _index+1
+			    if(_aindex<0){_aindex=$(".goods_small_img li img").length-1};
+			    bigImgbi=$(".goods_small_img li img").eq(_aindex).attr("src");
+			    $(".showxx img.bigbig").attr("src",bigImgbi);
+			  });
+			  
+			  $(".showxx").click(function(){
+				  if(jjjj!==1){
+					  $(this).hide();
+				  }
+				  jjjj=0;
+				  });
+}
+var jjjj=0;
+
+function resets()
+{
+	$(".mask input:text").each(function(){
+		if(isIE())
+		{
+			$(this).val($(this).attr("placeholder"));
+		}else{
+			$(this).val("");
+		}
+	});
+	$(".mask input:password").each(function(){
+		if(isIE())
+		{
+			$(this).next().val($(this).attr("placeholder"));
+			$(this).val("");
+			$(this).blur();
+		}else{
+			$(this).val("");
+			$(this).blur();
+		}
+	});	
+}
+
+
+
+$(function(){
+	changeHeight();
+	changeHeightStyle();
+	$("main").css('min-height',$(window).height()-278);
+	setTimeout("imgHeightchange()",200);
+	/*导航栏搜索按钮开始*/
+	$(".search-new input").click(function(){
+		$(".rt_yu").show();
+	})
+	
+	$(document).mouseup(function(e){
+  var _con = $('.search-new');   // 设置目标区域
+  if(!_con.is(e.target) && _con.has(e.target).length === 0){ // Mark 1
+    $(".rt_yu").hide();
+  }
+});	
+/*导航栏搜索按钮结束*/
+	/*返回顶部*/
+	$(window).scroll(function(){
+		if($(window).scrollTop()==0){
+			$(".returntop").hide();
+		}
+		else{
+			$(".returntop").show();
+		}
+	})
+	$(".returntop").click(function(){
+		$(window).scrollTop("0");
+	})
+	$(".containall").css("min-height",$(window).height()-$(".pagefootno").height()-10);
+	/*uzou订单左侧导航展开收缩效果*/
+	$(".us_aq img").click(function(event) {
+		if($(this).attr("type")==0){
+			$(".us_pas").slideDown("5000");
+			$(this).attr({src: 'public/images/main-no/uj1.png'});
+			$(this).attr("type","1");
+		}
+		else{
+			$(".us_pas").slideUp("5000");
+			$(this).attr({src: 'public/images/main-no/ud1.png'});
+			$(this).attr("type","0");
+		}
+		
+	});
+	/*uzou左侧下拉列表*/
+	$(".quyuw1 ul").each(function(i) {
+		$('li:gt(7)',this).hide();
+		if($(".quyuw1 ul").eq(i).find("li").length>8){
+			$(".anlsdn").eq(i).css({"display":"block"});
+	     }
+	});
+	$(".anlsdn:visible").click(function(event) {
+		if($(this).attr('type')==0){
+		$(this).siblings('ul').children('li').slideDown(200);
+		$(this).attr("type","1");
+		$(".anlsdn").eq(i).html("∧");
+		}
+		else{
+			$(this).siblings('ul').children('li:gt(7)').slideUp(200);
+			$(this).attr("type","0");
+			$(".anlsdn").eq(i).html("∨");
+		}
+	});
+	/*uzou用户评价下拉列表*/
+	$(".w6more").css({"display":"none"});
+	$(".w6pall").each(function(i) {
+		$('.w6ping:gt(9)',this).hide();
+		if($(".w6ping").length>10){
+			$(".w6more").css({"display":"block"});
+	     }
+	});
+	$(".w6more:visible").click(function(event) {
+		if($(this).attr('type')==0){
+		$(this).siblings('.w6ping').slideDown(200);
+		$(this).attr("type","1");
+		}
+		else{
+			$(this).siblings('.w6ping:gt(9)').slideUp(200);
+			$(this).attr("type","0");
+		}
+	});
+	
+	/**
+	 * 绑定和完善资料切换
+	 */
+	$(".register-bind").click(function(event) {
+		$(".account-type-register").hide();
+		$(".account-type-bind").show();
+		$(".resign-tile").show();
+		resets();
+	});
+	$(".bind-register").click(function(event) {
+		$(".account-type-bind").hide();
+		$(".account-type-register").show();
+		resets();
+	});	
+	
+    /*注册*/
+	$(".logo").click(function(event) {
+		$(".mask").show();
+		resets();
+		$(".resign-text").hide();
+		$(".logo-text").show();
+		
+		
+	});
+	$(".logo-tile .close").click(function(event) {
+		$(".weideng").hide();
+		$(".logo-text").hide();
+		$(".mask").hide();	
+		resets();
+		$(".mask .form-resign p").hide();
+		$(".mask .form-logn p").hide();
+		$("#yanzma").attr("onclick","shur();");
+		$("#yanzma").text("点击获取验证码");
+	});
+	$(".logn-resign").click(function(event) {
+		$('#Verify').click();
+		$(".logo-text").hide();
+		$(".resign-text").show();
+		$(".resign-tile").show();
+		$(".weideng").hide();
+		resets();
+	});
+
+	/*登录*/
+	$(".resign").click(function(event) {
+		$(".mask").css({"display":"block"});
+		resets();
+		$(".logo-text").hide();
+		$(".resign-text").show();
+		$(".resign-tile").show();
+	
+	});
+	$(".resign-tile .close").click(function(event) {
+		
+		$(".resign-tile").show();
+		$(".weideng").hide();
+		$(".mask").hide();	
+		resets();
+		$(".mask .form-resign p").hide();
+		$(".mask .form-logn p").hide();
+		$("#yanzma").attr("onclick","shur();");
+		$("#yanzma").text("点击获取验证码");
+	});
+	$(".resign-logn").click(function(event) {
+		$('#Verify1').click();
+		$(".resign-text").hide();
+		$(".logo-text").show();
+		$(".logo-text1").hide();
+		resets();
+	});
+	/*点击二维码*/
+	$(".weideng").hide();
+	$(".onewei").click(function(){
+	    $(this).parents('.resign-tile').hide();
+		$(".weideng").show();
+		clearInterval(mysetInterval);
+		  loadQrcode();
+	});
+	$(".twouzouk").click(function(){
+		$(this).parents('.weideng').hide();
+		$(".resign-tile").eq(0).show();
+		clearInterval(mysetInterval);
+	})
+	/*服务条款*/
+	$(".clause").click(function(event) {
+		$(".logo-text").hide();
+		$(".mask").show();
+		$(".modal-dialog").show();
+	});
+	$(".modal-lg .close").click(function(event) {
+		$(".modal-dialog").hide();
+		$(".logo-text").show();
+	});
+	$(".btn-primary").click(function(event) {
+		$("#my_left").hide();
+		$(".logo-text").show();
+		$("#zhuce").prop("checked","checked"); 
+	});
+	$(".btn-default").click(function(event) {
+		$("#my_left").hide();
+		$(".logo-text").show();
+			$("#zhuce").prop("checked",false); 
+	});
+
+	/*页脚部分切换效果*/
+	 /*$(".w9tu").click(function(event) {
+	     	$(".w8tk").animate({"right":"0"},300);
+	     	$(".fade").addClass("fadein");
+	     });
+	     $(".w8sh").click(function(event) {
+	     	$(".w8tk").animate({"right":"-480px"},300);
+	     	$(".fade").removeClass("fadein");
+	     });
+	     $(".tiaok").click(function(event) {
+	     	$(this).parents(".w8mei").hide();
+	     	$(".w8mei").eq(1).show();
+	     });
+	     $(".w8mei").height($(window).height());
+	     $(".fhw8").click(function(event) {
+	     	$(".w8mei").hide();
+	     	$(".w8mei").eq(0).show();
+	     });
+
+	$(".lux-spanbg a").hover(function() {
+		$(this).children('img').attr("src","images/lux-no/grey_icon"+parseInt($(this).index()+1)+".png");
+	}, function() {
+		$(this).children('img').attr("src","images/lux-no/icon"+parseInt($(this).index()+1)+".png");
+	});*/
+	/*搜索框展开效果*/
+	 $(".lux-indextan .search").children('img').css("display","inline-block");
+	$(".lux-indextan .search").click(function(event) {	
+		$(this).css({"text-align":"left","display":"inline-block","border-bottom":"1px solid #fff"});
+		$(this).animate({"width":"220px"},300);
+		function inputAdd(){
+		$('.hideInput').css({"position":"absolute","top":"8px","left":"30px","display":"block"});
+		$('.hideInput').animate({"width":"180px"},300);
+
+	}
+	setTimeout(inputAdd, 300);
+	});
+	$(".search-top").click(function(event) {
+		$(this).css({"border-bottom":"1px solid #fff"});
+		$(this).animate({"width":"300px"},300);
+		function inputAdd(){
+		$('.hideInput').css({"position":"absolute","top":"4px","left":"30px","display":"block"});
+		$('.hideInput').animate({"width":"250px"},300);
+
+	}
+	setTimeout(inputAdd, 300);
+	});
+/*产品列表页价格、销量、人气升降序排列*/
+	 $(document).on('click','.transpreak .firsttrans',function(){
+		 $(".transpreak .firsttrans").css({"border-bottom":"5px solid grey"});
+		 $(".transpreak .twotrans").css({"border-top":"5px solid grey"});
+		 $(this).css({"border-bottom":"5px solid #f87500"});
+	 })
+	  $(document).on('click','.transpreak .twotrans',function(){
+		  $(".transpreak .firsttrans").css({"border-bottom":"5px solid grey"});
+		  $(".transpreak .twotrans").css({"border-top":"5px solid grey"});
+		  $(this).css({"border-top":"5px solid #f87500"});
+	 })
+	 
+	/*选择人数累计效果*/
+$(".datechUp").click(function(event) {
+	var valueThis=parseInt($(this).parents().siblings('.nyr').html());
+	if(valueThis<10){
+		valueThis++;
+	}
+	else{
+		return false;
+		valueThis=$(this).parents().siblings('.nyr').html();
+	}
+	$(this).parents().siblings('.nyr').html(valueThis);
+});
+		/*选择人数累计效果*/
+	 $(".datechUpTwo").click(function(event) {
+	 	var valueThis=parseInt($(this).parents().siblings('.nyr').html());
+	 	var maxnum=0;
+	 	var allnum=0;
+	 	if(peopletype=='1'){
+	 		maxnum=stocknum>99?99:stocknum;
+	 	}else if(peopletype=='2'){
+	 		if(stocknum>peopletoplimit){
+	 			maxnum=peopletoplimit;
+	 			}else{
+	 			 maxnum=stocknum;
+	 			}
+	 	}
+	 	;
+	 	$.each($(".peopleNum"),function(i,n){
+			var key = $(this).attr("value");
+			var num = $(this).text();
+			allnum+=parseInt(num);
+		});
+	 	if(valueThis<maxnum&&allnum<stocknum){
+	 		valueThis++;
+	 	}
+	 	else{
+	 		return false;
+	 		valueThis=$(this).parents().siblings('.nyr').html();
+	 	}
+	 	$(this).parents().siblings('.nyr').html(valueThis);
+	 });
+$(".datechDown").click(function(event) {
+var valueThis=parseInt($(this).parents().siblings('.nyr').html());	
+	if(valueThis>0){
+		valueThis--;
+	}  
+	else{
+		valueThis=0;
+		return false;
+	}
+	$(this).parents().siblings('.nyr').html(valueThis);
+});
+/*响应式图片左右切换效果*/
+	var index=0,length=0;
+	var len = $(".banner_tabljy ul li").length;
+	var ul_len = len*100/4;
+	var li_len = 100/len;
+	$(".banner_tabljy ul").css({"width":ul_len+"%"})
+	$(".banner_tabljy li").css({"width":li_len+"%"})
+	function banner_tab(){
+		//alert(ul_len-(li_len*4))
+		if(index>ul_len-(ul_len/len*4)){
+			index = ul_len-(ul_len/len*4);
+			return;
+		}
+		if(index<0){
+			index=0;
+		}
+		$(".banner_tabljy ul").animate({"marginLeft":-index+"%"})
+	}
+	$(".banner_tabljy .left").click(function(){
+		index = index-ul_len/len;
+		banner_tab(index);
+	})
+	$(".banner_tabljy .right").click(function(){
+		index= index+ul_len/len;
+		banner_tab(index);
+	})
+	$(".banner_tabljy ul li .uzouppe").each(function(i) {
+		$(this).hover(function() {
+			$(".banner_tabljy ul li h4").eq(i).show();
+		}, function() {
+			$(".banner_tabljy ul li h4").eq(i).hide();
+		});
+	})
+	$(".banner_tabljyy ul li .uzoupeii").each(function(i) {
+		$(this).hover(function() {
+			$(".us_tablyy ul li span").eq(i).show();
+		}, function() {
+			$(".us_tablyy ul li span").eq(i).hide();
+		});
+	})
+	
+	
+
+/*UZOU产品详情滑动效果*/
+	$(".w5li li").each(function(i) {
+		$(".w5li li").not($(".us_collect_shop li")).eq(i).click(function(event) {
+		$(".ljysiti li").removeClass('current');
+		$(".w5li li").eq(i).addClass('current');
+	})
+		});
+	$(document).on('click','.transpreak li',function(){
+		$(".us_collect_shop li b").css({"color":"#000"});
+		$(this).parent().siblings('b').css({"color":"rgb(248, 117, 0)"});
+	})
+/*UZOU产品详情滑动效果
+$(".w5li li").each(function(i) {
+	$(".w5li li").eq(i).click(function(event) {
+	var w5index=$(this).index();
+	var w5indexs=w5index*30;
+	var hei=0;
+	$(".ljysiti li").removeClass('current');
+	$(".w5li li").eq(i).addClass('current');
+	for(var n=0; n<i;n++){
+		hei+=$(".ljysirela dl").eq(n).height();
+	}
+	$(".ljysirela").animate({
+		'top': "-"+(hei+w5indexs)+"px"},
+		500);
+})
+	});*/
+
+})
+
+function setRowHeigth()
+{
+	
+	$("#msg1").css("height",$(".information_bd>.duanborder>.row").height());
+	$(".duanlebor").height($(".information_bd").height());
+}
+
+
+function isone(str) {
+	if (str == "")
+		return true;
+	var regu = "^[a-zA-Z0-9\u4e00-\u9fa5()（）]+$";
+	var re = new RegExp(regu);
+	return re.test(str);
+}
+
+
+
+
+
+function lunbo(){
+	
+		 
+		 if($(".banneruiew li").length<2){
+			 var wjkss=$(".banner-circle").outerWidth(true);
+			    $(".banner-circle").css("margin-left",-wjkss/2);
+			    var index=0,length=0,key=0;	
+				var len = $(".banneruiew li").length;
+				var ul_len = len*100;
+				var li_len = 100/len;
+				$(" .banneruiew").css({"width":ul_len+"%"});
+				$(".banneruiew li").css({"width":li_len+"%"});
+				$(".new-left").css("background","url(public/images/main-no/x-jian.png) no-repeat -28px 0");
+				$(".new-right").css("background","url(public/images/main-no/x-jian.png) no-repeat -42px 0");
+		 }
+		 else{
+			 
+			 function changestate(){
+				 
+					$(".banneruiew li").hide();
+					$(".banneruiew li").eq(key).show();
+					$(".newcircle li").eq(key).addClass("cur").siblings().removeClass("cur");
+			 }
+			// $(".banneruiew li").first().clone(true).insertAfter($(".banneruiew li").last());
+				/*首页全屏轮播效果--开始*/
+				     var wjkss=$(".banner-circle").outerWidth(true);
+				    $(".banner-circle").css("margin-left",-wjkss/2);
+				    var index=0,length=0,key=0;	
+					var len = $(".banneruiew li").length;
+
+					var ul_len = len*100;
+					var li_len = 100/len;
+					$(" .banneruiew").css({"width":ul_len+"%"});
+					$(".banneruiew li").css({"width":li_len+"%"});
+
+					/*function banner_tab(val){
+						
+						if(index>ul_len-(ul_len/len)){
+							index = ul_len-(ul_len/len);
+							return;
+						}
+						$(".banneruiew").animate({"marginLeft":-index+"%"},300);
+						if(val==0){
+							
+					
+						if($(".newcircle li.cur").index()==$(".banneruiew li").length-2){
+							index=0;
+							key=0;
+							setTimeout(function(){
+								$(".banneruiew").css("marginLeft","0%");
+							},400);
+						}
+						}
+					
+						$(".newcircle li").eq(key).addClass("cur").siblings().removeClass("cur");
+					}*/
+					$(document).delegate(".new-left","click",function(){
+						if(key==0){
+							key=len;
+						}
+						key-=1;
+						changestate();
+						/*index= index-ul_len/len;
+						key-=1;
+						if(key<0){
+							key=0;
+						}
+						banner_tab(0);*/
+					})
+					$(document).delegate(".new-right","click",function(){
+						key+=1;
+						if(key==len){
+							key=0;
+						}
+						changestate();
+						/*index = index+ul_len/len;
+						key+=1;
+						if(key>len-1){
+							key=0;
+							index=0;
+						}
+						banner_tab(0);*/
+					})
+					$(document).delegate(".newcircle li","click",function(){
+						var this_=$(this).index();
+						index= this_*100;
+							key= this_;
+							changestate();
+							//banner_tab(1);
+					})
+
+					
+						var timer=setInterval('$(".new-right").click()',3000);
+				  $(".banner-new").hover(function() {
+					 	clearInterval(timer);     
+					 }, function() {
+					 	clearInterval(timer);
+					 	timer=setInterval('$(".new-right").click()',3000);
+					 })
+		 }
+}
