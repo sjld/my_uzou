@@ -1,0 +1,53 @@
+body{
+    background: #EFEFEF;
+}
+b{
+    color: #ccc;
+    font-size: 14px;
+    padding:10px 10px;
+}
+.search{
+    border-bottom: 4px solid #38D3A8
+}
+.col-3>div{
+    text-align: center;
+    width:273px;
+    height:250px;
+    background: #fff;
+    margin: 8px 10px;
+}
+.col-3 img{
+    width:120px;
+    height:120px;
+}
+.hide{
+    display:none;
+    width:1920px;
+    height:80px;
+    position: absolute;
+    background: #fff;
+}
+.continent>div,.country>div,.city>div{
+   margin:25px 188px;
+    
+}
+.cont span{
+    cursor: pointer;
+    margin-left:20px;
+}
+.row>.col-4{
+  cursor: pointer;
+}
+.row>.col-3 img{
+    margin:25px 10px;
+
+}
+.row>.col-3 p{
+    font-weight: bold;
+    font-size:14px;
+    color:#ccc;
+    margin:20px auto;   
+}
+
+
+
