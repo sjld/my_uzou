@@ -78,27 +78,4 @@ router.post("/register",(req,res)=>{
         res.end()      
     })  
 })
-    /* router.post('/register',(req,res)=>{
-         var uname=req.body.uname;
-         var upwd=req.body.upwd;
-         var email=req.body.email;
-         
-         if(!uname){
-           res.send("用户名不能为空");
-           return;
-         }
-         if(!upwd){
-           res.send("密码不能为空");
-           return;
-         }
-         if(!email){
-           res.send("邮箱不能为空");
-           return;
-         }
-         var sql="insert into user values(null,?,?,null,null,null,?,null)";
-         pool.query(sql,[uname,upwd,email],(err,result)=>{
-            if(err) throw err;	  
-            res.send("注册成功");
-         });	
-     });*/
 module.exports=router;
